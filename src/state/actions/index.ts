@@ -1,1 +1,2 @@
-export * as setAction from './setAction'
+export * from './setsAction'
+export * from './cardAction'

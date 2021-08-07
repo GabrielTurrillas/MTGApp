@@ -1,9 +1,9 @@
-import axios from 'axios'
-import { Dispatch } from 'redux'
-import { setActionTypes } from '../action-types/SetsTypes'
-import { setAction } from '../actions'
+import axios from 'axios';
+import { Dispatch } from 'redux';
+import { setActionTypes } from '../action-types';
+import { SetsAction } from '../actions';
 
-export const getAllSets = () => async (dispatch: Dispatch<setAction.Action>) => {
+export const getAllSets = () => async (dispatch: Dispatch<SetsAction>) => {
   try {
     dispatch({
       type: setActionTypes.SETS_LOADING
@@ -17,5 +17,5 @@ export const getAllSets = () => async (dispatch: Dispatch<setAction.Action>) => 
     dispatch({
       type: setActionTypes.SETS_FAIL
     })
-  }
-}
+  };
+};

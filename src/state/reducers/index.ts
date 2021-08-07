@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import setsReducer from './SetReducers'
+import setsReducer from './SetsReducers'
 
 const RootReducer = combineReducers({
   setsReducer

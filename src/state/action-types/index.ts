@@ -2,13 +2,13 @@ export enum setActionTypes {
   SETS_LOADING = 'SETS_LOADING',
   SETS_FAIL = 'SETS_FAIL',
   SETS_SUCCESS = 'SETS_SUCCESS',
-}
+};
 
 export enum cardsActionTypes {
-  LEA_LOADING = 'LEA_LOADING',
-  LEA_FAIL = 'LEA_FAIL',
-  LEA_SUCCESS = 'LEA_SUCCESS',
-}
+  CARDS_LOADING = 'CARDS_LOADING',
+  CARDS_FAIL = 'CARDS_FAIL',
+  CARDS_SUCCESS = 'CARDS_SUCCESS',
+};
 
 
 

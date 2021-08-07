@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootStore } from './state/store';
-import { setsActionCreators } from './state/action-creators';
+import { getAllSets } from './state/action-creators';
 
 const App: React.FC = () => {
 
@@ -9,7 +9,7 @@ const App: React.FC = () => {
   const sets = useSelector((state: RootStore) => state.setsReducer.sets);
 
   useEffect(() => {
-    dispatch(setsActionCreators.getAllSets())
+    dispatch(getAllSets())
   }, [dispatch])
 
   return (

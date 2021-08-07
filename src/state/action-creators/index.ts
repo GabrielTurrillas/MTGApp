@@ -1,1 +1,1 @@
-export * as setsActionCreators from './setsActionCreators'
+export * from './setsActionCreators'
