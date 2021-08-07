@@ -1,9 +1,10 @@
-import { CardsAction, CardsType } from '../actions';
+import { CardsAction, CardsType, HeadersType } from '../actions';
 import { cardsActionTypes } from '../action-types';
 
 export interface DefaultStateI {
   loading: boolean,
   cards?: CardsType
+  headers?: HeadersType
 };
 
 const defaultState: DefaultStateI = {
@@ -23,7 +24,8 @@ const cardsReducer = (state: DefaultStateI = defaultState, action: CardsAction):
     case cardsActionTypes.CARDS_SUCCESS:
       return {
         loading: false,
-        cards: action.payload
+        cards: action.payload,
+        headers: action.headers
       };
     default:
       return state

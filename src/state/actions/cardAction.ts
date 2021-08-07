@@ -1,26 +1,35 @@
 import { cardsActionTypes } from "../action-types";
 
+// payload and header types
 export type CardsType = {
   cards: SingleCardType[]
 };
 
-export type SingleCardType = {
-  name: string
+export type HeadersType = {
+  count: number
+  "total-count": number
 };
 
+// composition types
+export type SingleCardType = {
+  name: string
+  imageUrl: string
+};
+
+//////////////////////////////////////////////////////////
+
 interface CardsLoadingAction {
-  type: cardsActionTypes.CARDS_LOADING
+  type: typeof cardsActionTypes.CARDS_LOADING
 };
 
 interface CardsFailAction {
-  type: cardsActionTypes.CARDS_FAIL
+  type: typeof cardsActionTypes.CARDS_FAIL
 };
 
 interface CardsSuccessAction {
-  type: cardsActionTypes.CARDS_SUCCESS
-  payload: {
-    cards: SingleCardType[]
-  };
+  type: typeof cardsActionTypes.CARDS_SUCCESS
+  payload: CardsType
+  headers: HeadersType
 };
 
 export type CardsAction = CardsLoadingAction | CardsFailAction | CardsSuccessAction

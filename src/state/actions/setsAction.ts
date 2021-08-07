@@ -19,9 +19,7 @@ interface SetsFailAction {
 
 interface SetsSuccessAction {
   type: typeof setActionTypes.SETS_SUCCESS
-  payload: {
-    sets: SingleSetType[]
-  };
+  payload: SetsType
 };
 
 export type SetsAction = SetsLoadingAction | SetsFailAction | SetsSuccessAction;
