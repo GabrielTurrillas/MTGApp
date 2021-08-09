@@ -12,6 +12,7 @@ export type HeadersType = {
 export type SingleCardType = {
   name: string
   imageUrl: string
+  id: string
 };
 
 interface CardsLoadingAction {

@@ -8,7 +8,7 @@ export const getAllSetCards = (set: string, page: number = 1) => async (dispatch
     dispatch({
       type: cardsActionTypes.CARDS_LOADING
     });
-    const res = await axios.get(`https://api.magicthegathering.io/v1/cards?set=${set}&page${page}`)
+    const res = await axios.get(`https://api.magicthegathering.io/v1/cards?set=${set}&page=${page}`)
     dispatch({
       type: cardsActionTypes.CARDS_SUCCESS,
       payload: res.data,
