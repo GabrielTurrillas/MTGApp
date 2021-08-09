@@ -1,6 +1,5 @@
 import { cardsActionTypes } from "../action-types";
 
-// payload and header types
 export type CardsType = {
   cards: SingleCardType[]
 };
@@ -10,13 +9,10 @@ export type HeadersType = {
   "total-count": number
 };
 
-// composition types
 export type SingleCardType = {
   name: string
   imageUrl: string
 };
-
-//////////////////////////////////////////////////////////
 
 interface CardsLoadingAction {
   type: typeof cardsActionTypes.CARDS_LOADING

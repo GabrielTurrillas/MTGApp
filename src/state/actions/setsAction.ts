@@ -1,7 +1,7 @@
 import { setActionTypes } from '../action-types';
 
 export type SetsType = {
-  sets: SingleSetType[]
+  sets?: SingleSetType[]
 };
 
 export type SingleSetType = {
