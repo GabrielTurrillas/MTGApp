@@ -53,7 +53,7 @@ const Container = styled.div`
   padding: 0 15rem;
   padding-bottom: 7rem;
   @media (max-width: 1300px){
-    padding:0rem 2rem;
+    padding:0rem 0rem;
   }
 `
 
