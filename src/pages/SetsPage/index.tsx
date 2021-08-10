@@ -25,16 +25,31 @@ const SetsPage: React.FC = () => {
   };
 
   return (
-    <Gallery>
-      {sets?.sets?.map(set => {
-        console.log(set)
-        return checkIfCore(set)
-      })}
-    </Gallery>
+    <Container>
+      <Title>Magic Sets</Title>
+      <Gallery>
+        {sets?.sets?.map(set => {
+          console.log(set)
+          return checkIfCore(set)
+        })}
+      </Gallery>
+    </Container>
   )
 }
 
 export default SetsPage;
+
+const Container = styled.div`
+  display: grid;
+  text-align:center;
+  padding: 2rem 15rem;
+  @media (max-width: 1300px){
+    padding:2rem 2rem;
+  }
+`
+const Title = styled.h1`
+  margin-bottom:3rem;
+`
 
 const Gallery = styled.div`
   display: grid;

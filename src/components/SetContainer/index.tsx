@@ -17,6 +17,7 @@ const SetContainer: React.FC<SetContainerI> = ({
           pathname: '/cardsSet',
           state: {
             code: set.code,
+            setName: set.name,
             page: 1
           }
         }}
@@ -37,7 +38,6 @@ const SetLink = styled(Link)`
   display:flex;
   text-decoration:none;
   color:black;
-  font-family: 'Roboto', sans-serif;
   justify-content:center;
   align-items:center;
   text-align: center;

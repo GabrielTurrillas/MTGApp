@@ -9,6 +9,7 @@ import CardContainer from '../../components/CardContainer'
 
 interface LocationI {
   code: string
+  setName: string
   page: number
 }
 
@@ -17,7 +18,7 @@ const SetCardsPage: React.FC = () => {
   const location = useLocation<LocationI>();
   const cards = useSelector((state: RootStore) => state.cardsReducer.cards);
   const cardsHeaders = useSelector((state: RootStore) => state.cardsReducer.headers);
-  const { code, page } = location.state;
+  const { code, page, setName } = location.state;
   const [numberOfPages, setNumberOfPages] = useState(0);
   const [totalCount, setTotalCount] = useState(0); //Total Count of cards in a Set
   const count = 100 //Count of cards in a Page
@@ -57,25 +58,37 @@ const SetCardsPage: React.FC = () => {
   const pages: liType[] = pagination()
 
   return (
-    <Gallery>
-      {cards?.cards.map(card => {
-        return <Featured key={card.id} >
-          <CardContainer
-            src={card.imageUrl}
-            cardName={card.name}
-            manaCost={card.manaCost}
-            type={card.type}
-            rarity={card.rarity}
-            artist={card.artist}
-          />
-        </Featured>
-      })}
-      <ul>{pages}</ul>
-    </Gallery>
+    <Container>
+      <Title>{setName}</Title>
+      <Gallery>
+        {cards?.cards.map(card => {
+          return <Featured key={card.id} >
+            <CardContainer
+              src={card.imageUrl}
+              cardName={card.name}
+              manaCost={card.manaCost}
+              type={card.type}
+              rarity={card.rarity}
+              artist={card.artist}
+            />
+          </Featured>
+        })}
+        <ul>{pages}</ul>
+      </Gallery>
+    </Container>
   )
 }
 
 export default SetCardsPage
+
+const Title = styled.h1`
+  text-align:center;
+  padding:2rem 0;
+`
+
+const Container = styled.div`
+  
+`
 
 const Gallery = styled.div`
   display:grid;

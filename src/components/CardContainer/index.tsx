@@ -24,13 +24,13 @@ const CardContainer: React.FC<CardContainerI> = ({
       <ImgWrapper>
         <img src={src} alt={cardName} />
       </ImgWrapper>
-      <ul>
-        <li>Name: {cardName}</li>
-        <li>Mana Cost: {manaCost}</li>
-        <li>Type: {type}</li>
-        <li>Rarity: {rarity}</li>
-        <li>Artist: {artist}</li>
-      </ul>
+      <InfoUl>
+        <li><TitleLi>Name:</TitleLi> {cardName}</li>
+        <li><TitleLi>Mana Cost:</TitleLi> {manaCost}</li>
+        <li><TitleLi>Type:</TitleLi>{type}</li>
+        <li><TitleLi>Rarity:</TitleLi> {rarity}</li>
+        <li><TitleLi>Artist:</TitleLi>{artist}</li>
+      </InfoUl>
     </Container>
   )
 }
@@ -46,9 +46,17 @@ const Container = styled.div`
   grid-template-columns:repeat(2, 1fr);
   width:100%;
   height:100%;
-  font-family: 'Roboto', sans-serif;
   font-weight:500;
   @media (max-width: 460px){
     font-size: .5rem;
   }
+  `
+
+const InfoUl = styled.ul`
+  margin-top:1rem;
+  list-style:none;
 `
+const TitleLi = styled.p`
+  font-weight:bold;
+`
+
