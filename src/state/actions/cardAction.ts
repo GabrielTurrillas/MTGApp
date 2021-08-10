@@ -10,9 +10,14 @@ export type HeadersType = {
 };
 
 export type SingleCardType = {
+  id: string
   name: string
   imageUrl: string
-  id: string
+  manaCost: string
+  type: string
+  rarity: string
+  artist: string
+  originalText: string
 };
 
 interface CardsLoadingAction {

@@ -59,11 +59,15 @@ const SetCardsPage: React.FC = () => {
   return (
     <Gallery>
       {cards?.cards.map(card => {
-        return <Featured>
+        return <Featured key={card.id} >
           <CardContainer
-            key={card.id}
             src={card.imageUrl}
             cardName={card.name}
+            manaCost={card.manaCost}
+            type={card.type}
+            rarity={card.rarity}
+            artist={card.artist}
+            originalText={card.originalText}
           />
         </Featured>
       })}
@@ -77,7 +81,7 @@ export default SetCardsPage
 const Gallery = styled.div`
   display:grid;
   gap: 1rem;
-  grid-auto-rows: 30rem;
+  grid-auto-rows: 25rem;
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 `;
 

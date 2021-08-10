@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 import { RootStore } from '../../state/store';
 import { getAllSets } from '../../state/action-creators'
+import { SingleSetType } from '../../state/actions';
 
 
 const SetsPage: React.FC = () => {
@@ -15,22 +16,31 @@ const SetsPage: React.FC = () => {
     dispatch(getAllSets());
   }, [dispatch])
 
+  type liType = React.DetailedHTMLProps<React.LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>
+
+  const checkIfCore = (set: SingleSetType): liType | void => {
+    if (set.type === 'core' || set.type === 'expansion') {
+      return <li key={set.code}>
+        <Link
+          to={{
+            pathname: '/cardsSet',
+            state: {
+              code: set.code,
+              page: 1
+            }
+          }}
+        >
+          {set.name} {set.code}
+        </Link>
+      </li>
+    }
+  }
+
   return (
     <ul>
       {sets?.sets?.map(set => {
-        return <li key={set.code}>
-          <Link
-            to={{
-              pathname: '/cardsSet',
-              state: {
-                code: set.code,
-                page: 1
-              }
-            }}
-          >
-            {set.name} {set.code}
-          </Link>
-        </li>
+        console.log(set)
+        return checkIfCore(set)
       })}
     </ul>
   )

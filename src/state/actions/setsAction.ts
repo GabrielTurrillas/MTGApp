@@ -7,6 +7,7 @@ export type SetsType = {
 export type SingleSetType = {
   name: string
   code: string
+  type: string
 };
 
 interface SetsLoadingAction {
