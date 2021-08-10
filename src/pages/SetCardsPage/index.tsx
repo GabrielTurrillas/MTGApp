@@ -110,6 +110,9 @@ const TitleWrapper = styled.div`
 
 const Container = styled.div`
   padding:0 4rem;
+  @media (max-width: 1300px){
+    padding:0rem 0rem;
+  }
 `
 
 const Gallery = styled.div`
