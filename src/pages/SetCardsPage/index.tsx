@@ -59,7 +59,9 @@ const SetCardsPage: React.FC = () => {
 
   return (
     <Container>
-      <Title>{setName}</Title>
+      <TitleWrapper>
+        <Title>{setName}</Title>
+      </TitleWrapper>
       <Gallery>
         {cards?.cards.map(card => {
           return <Featured key={card.id} >
@@ -84,21 +86,31 @@ export default SetCardsPage
 const Title = styled.h1`
   text-align:center;
   padding:2rem 0;
+  border-radius:10px;
+  width:25rem;
+  box-shadow: 0 8px 8px 4px lightblue;
+`
+
+const TitleWrapper = styled.div`
+  display:flex;
+  justify-content:center;
+  padding:2rem;
 `
 
 const Container = styled.div`
-  
+  padding:0 4rem;
 `
 
 const Gallery = styled.div`
   display:grid;
   gap: 1rem;
-  grid-auto-rows: 25rem;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-auto-rows: max-content;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 5fr));
 `;
 
 const Featured = styled.div`
   display:flex;
   grid-column:span 2;
-  border:2px solid black;
+  border-radius:10px;
+  box-shadow: 0 8px 8px 4px lightblue;
 `

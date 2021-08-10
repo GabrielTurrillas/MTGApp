@@ -26,7 +26,9 @@ const SetsPage: React.FC = () => {
 
   return (
     <Container>
-      <Title>Magic Sets</Title>
+      <TitleWrapper>
+        <Title>Magic Sets</Title>
+      </TitleWrapper>
       <Gallery>
         {sets?.sets?.map(set => {
           console.log(set)
@@ -39,16 +41,28 @@ const SetsPage: React.FC = () => {
 
 export default SetsPage;
 
+const TitleWrapper = styled.div`
+  display:flex;
+  justify-content:center;
+  padding:2rem;
+`
+
 const Container = styled.div`
   display: grid;
   text-align:center;
-  padding: 2rem 15rem;
+  padding: 0 15rem;
+  padding-bottom: 7rem;
   @media (max-width: 1300px){
-    padding:2rem 2rem;
+    padding:0rem 2rem;
   }
 `
+
 const Title = styled.h1`
+  text-align:center;
   padding:2rem 0;
+  border-radius:10px;
+  width:25rem;
+  box-shadow: 0 8px 8px 4px lightblue;
 `
 
 const Gallery = styled.div`

@@ -31,7 +31,8 @@ const SetContainer: React.FC<SetContainerI> = ({
 export default SetContainer
 
 const Container = styled.div`
-  border:2px solid black;
+  border-radius:10px;
+  box-shadow: 0 8px 8px 4px lightblue;
   `
 
 const SetLink = styled(Link)`
