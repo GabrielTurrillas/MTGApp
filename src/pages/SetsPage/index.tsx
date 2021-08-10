@@ -48,7 +48,7 @@ const Container = styled.div`
   }
 `
 const Title = styled.h1`
-  margin-bottom:3rem;
+  padding:2rem 0;
 `
 
 const Gallery = styled.div`
