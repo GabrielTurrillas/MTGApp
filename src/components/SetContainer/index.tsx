@@ -33,6 +33,13 @@ export default SetContainer
 const Container = styled.div`
   border-radius:10px;
   box-shadow: 0 8px 8px 4px lightblue;
+  transition:.2s;
+  &:hover{
+    transform: scale(1.1);
+    &:active{
+      transform: scale(.9);
+    }
+  }
   `
 
 const SetLink = styled(Link)`

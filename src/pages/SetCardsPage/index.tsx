@@ -21,7 +21,7 @@ const SetCardsPage: React.FC = () => {
   const { code, page, setName } = location.state;
   const [numberOfPages, setNumberOfPages] = useState(0);
   const [totalCount, setTotalCount] = useState(0); //Total Count of cards in a Set
-  const count = 100 //Count of cards in a Page
+  const count = 100  //Count of cards in a Page
 
   useEffect(() => {
     dispatch(getAllSetCards(code, page))
@@ -50,7 +50,16 @@ const SetCardsPage: React.FC = () => {
   const pagination = (): liType[] => {
     let pages: liType[] = []
     for (let i = 0; i < numberOfPages; i++) {
-      pages.push(<Link to={{ pathname: '/cardsSet', state: { code: code, page: i + 1 } }} key={i}>{i + 1}</Link>)
+      pages.push(<PageButton
+        to={{
+          pathname: '/cardsSet',
+          state: {
+            code: code,
+            page: i + 1,
+            setName: setName
+          }
+        }}
+        key={i}>{i + 1}</PageButton>)
     }
     return pages
   }
@@ -75,8 +84,10 @@ const SetCardsPage: React.FC = () => {
             />
           </Featured>
         })}
-        <ul>{pages}</ul>
       </Gallery>
+      <PaginationWrapper>
+        {pages}
+      </PaginationWrapper>
     </Container>
   )
 }
@@ -113,4 +124,30 @@ const Featured = styled.div`
   grid-column:span 2;
   border-radius:10px;
   box-shadow: 0 8px 8px 4px lightblue;
+`
+
+const PaginationWrapper = styled.div`
+  display:grid;
+  column-gap: 3rem;
+  padding:4rem 0;
+  grid-auto-rows: max-content;
+  grid-template-columns: repeat(auto-fill, minmax(1rem, 2fr));
+`
+
+const PageButton = styled(Link)`
+  padding-top:16px;
+  padding-bottom:16px;
+  padding-right:30px;
+  padding-left:21px;
+  border-radius:3px;
+  text-decoration:none;
+  color:black;
+  box-shadow: 0 8px 8px 4px lightblue;
+  transition:0.2s;
+  &:hover{
+    transform: scale(1.1);
+    &:active{
+      transform: scale(0.9)
+    }
+  }
 `
