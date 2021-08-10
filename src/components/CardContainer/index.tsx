@@ -8,7 +8,6 @@ interface CardContainerI {
   type: string
   rarity: string
   artist: string
-  originalText: string
 }
 
 
@@ -19,7 +18,6 @@ const CardContainer: React.FC<CardContainerI> = ({
   type,
   rarity,
   artist,
-  originalText,
 }) => {
   return (
     <Container>
@@ -32,7 +30,6 @@ const CardContainer: React.FC<CardContainerI> = ({
         <li>Type: {type}</li>
         <li>Rarity: {rarity}</li>
         <li>Artist: {artist}</li>
-        <li>Original Text: {originalText}</li>
       </ul>
     </Container>
   )

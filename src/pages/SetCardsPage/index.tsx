@@ -67,7 +67,6 @@ const SetCardsPage: React.FC = () => {
             type={card.type}
             rarity={card.rarity}
             artist={card.artist}
-            originalText={card.originalText}
           />
         </Featured>
       })}
