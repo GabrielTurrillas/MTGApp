@@ -22,7 +22,7 @@ const CardContainer: React.FC<CardContainerI> = ({
   return (
     <Container>
       <ImgWrapper>
-        <img src={src} alt={cardName} />
+        <Img src={src} alt={cardName} />
       </ImgWrapper>
       <InfoUl>
         <li><TitleP>Name:</TitleP> {cardName}</li>
@@ -39,6 +39,11 @@ export default CardContainer
 
 const ImgWrapper = styled.div`
   height:100%;
+  justify-content:center;
+`
+
+const Img = styled.img`
+  line-height: 250px;
 `
 
 const Container = styled.div`

@@ -14,7 +14,7 @@ const SetsPage: React.FC = () => {
   const dispatch = useDispatch();
   const { sets, loading } = useSelector((state: RootStore) => state.setsReducer);
 
-
+  const filterSets = sets && sets.sets?.filter(set => set.code !== '4BB')
 
   useEffect(() => {
     dispatch(getAllSets());
@@ -36,7 +36,7 @@ const SetsPage: React.FC = () => {
       {loading ?
         <BounceLoader loading css={loaderCss} size={400} /> :
         <Gallery>
-          {sets?.sets?.map(set => {
+          {filterSets?.map(set => {
             console.log(set)
             return checkIfCore(set)
           })}
