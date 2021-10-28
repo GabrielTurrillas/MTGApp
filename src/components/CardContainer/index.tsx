@@ -22,7 +22,7 @@ const CardContainer: React.FC<CardContainerI> = ({
   return (
     <Container>
       <ImgWrapper>
-        <Img src={src} alt={cardName} />
+        <Img src={src} alt='Image not available' />
       </ImgWrapper>
       <InfoUl>
         <li><TitleP>Name:</TitleP> {cardName}</li>
