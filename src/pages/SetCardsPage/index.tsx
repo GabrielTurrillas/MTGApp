@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { BounceLoader } from 'react-spinners'
+import { css } from '@emotion/core'
 
 import { RootStore } from '../../state/store';
 import { getAllSetCards } from '../../state/action-creators'
@@ -16,7 +18,7 @@ interface LocationI {
 const SetCardsPage: React.FC = () => {
   const dispatch = useDispatch();
   const location = useLocation<LocationI>();
-  const cards = useSelector((state: RootStore) => state.cardsReducer.cards);
+  const { cards, loading } = useSelector((state: RootStore) => state.cardsReducer);
   const cardsHeaders = useSelector((state: RootStore) => state.cardsReducer.headers);
   const { code, page, setName } = location.state;
   const [numberOfPages, setNumberOfPages] = useState(0);
@@ -64,6 +66,11 @@ const SetCardsPage: React.FC = () => {
     return pages
   }
 
+  const loaderCss = css`
+    justify-self:center;
+    margin-top:8rem;
+  `
+
   const pages: liType[] = pagination()
 
   return (
@@ -71,23 +78,28 @@ const SetCardsPage: React.FC = () => {
       <TitleWrapper>
         <Title>{setName}</Title>
       </TitleWrapper>
-      <Gallery>
-        {cards?.cards.map(card => {
-          return <Featured key={card.id} >
-            <CardContainer
-              src={card.imageUrl}
-              cardName={card.name}
-              manaCost={card.manaCost}
-              type={card.type}
-              rarity={card.rarity}
-              artist={card.artist}
-            />
-          </Featured>
-        })}
-      </Gallery>
-      <PaginationWrapper>
-        {pages}
-      </PaginationWrapper>
+      {loading ?
+        <BounceLoader css={loaderCss} size={400} loading /> :
+        <>
+          <Gallery>
+            {cards?.cards.map(card => {
+              return <Featured key={card.id} >
+                <CardContainer
+                  src={card.imageUrl}
+                  cardName={card.name}
+                  manaCost={card.manaCost}
+                  type={card.type}
+                  rarity={card.rarity}
+                  artist={card.artist}
+                />
+              </Featured>
+            })}
+          </Gallery>
+          <PaginationWrapper>
+            {pages}
+          </PaginationWrapper>
+        </>
+      }
     </Container>
   )
 }
@@ -106,9 +118,10 @@ const TitleWrapper = styled.div`
   display:flex;
   justify-content:center;
   padding:2rem;
-`
+  `
 
 const Container = styled.div`
+  display:grid;
   padding:0 4rem;
   @media (max-width: 1300px){
     padding:0rem 0rem;

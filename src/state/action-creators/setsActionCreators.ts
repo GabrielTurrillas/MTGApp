@@ -6,7 +6,7 @@ import { SetsAction } from '../actions';
 export const getAllSets = () => async (dispatch: Dispatch<SetsAction>) => {
   try {
     dispatch({
-      type: setActionTypes.SETS_LOADING
+      type: setActionTypes.SETS_LOADING,
     });
     const res = await axios.get(`https://api.magicthegathering.io/v1/sets/`)
     dispatch({

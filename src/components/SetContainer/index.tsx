@@ -31,8 +31,8 @@ const SetContainer: React.FC<SetContainerI> = ({
 export default SetContainer
 
 const Container = styled.div`
-  border-radius:10px;
-  box-shadow: 0 8px 8px 4px lightblue;
+  border-radius:5px;
+  box-shadow: 0 3px 3px 3px lightblue;
   transition:.2s;
   &:hover{
     transform: scale(1.1);
